@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 
     // to track unused annotation processors
-    id 'kotlin-kapt'
+    id "org.jetbrains.kotlin.kapt"
 
     // dependency injection
     id 'com.google.dagger.hilt.android' version '2.41' apply false
@@ -31,20 +31,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = '1.8'
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.5"
     }
+
     buildFeatures {
         compose true
     }
-    packagingOptions {
-        resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
-        }
-    }
+
 }
 
 dependencies {
